@@ -1,10 +1,8 @@
 <template>
   <div class="dropdown">
-    <div class="dropdown__label-wrapper">
-      <label v-if="label" :for="'dropdown-' + id" :id="'dropdownLabel-' + id" class="dropdown__label"
-        >{{ label }}
-      </label>
-      <Tooltip v-if="tooltip" :text="tooltip" :labelledBy="'dropdownLabel-' + id"></Tooltip>
+    <div v-if="label" class="dropdown__label-wrapper">
+      <label :for="'dropdown-' + id" :id="'dropdownLabel-' + id" class="dropdown__label">{{ label }} </label>
+      <slot name="labelAfter" :labelledBy="'dropdownLabel-' + id"></slot>
     </div>
     <div class="dropdown__select">
       <button
