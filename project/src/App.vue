@@ -9,7 +9,7 @@ const selectedValue = ref('OP_SENASTE_30_DAGARNA')
 <template>
   <div class="container">
     <DropdownSelect
-            v-model="selectedPeriod"
+            :default-value="'OP_SENASTE_90_DAGARNA'"
             :options="TIDSPERIODER"
             :label="$t('lagesbildView.lagesbildComponent.search.tidsperiodLabel')"
             @update:modelValue="fetchLagesbild()"
