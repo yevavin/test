@@ -9,12 +9,18 @@ const selectedValue = ref('OP_SENASTE_30_DAGARNA')
 <template>
   <div class="container">
     <DropdownSelect
-      v-model="selectedValue"
-      :options="time"
-      label="Åtgärder utförda"
-      tooltip="Select a time period to filter the actions"
-    />
-    <p>Selected value: {{ selectedValue }}</p>
+            v-model="selectedPeriod"
+            :options="TIDSPERIODER"
+            :label="$t('lagesbildView.lagesbildComponent.search.tidsperiodLabel')"
+            @update:modelValue="fetchLagesbild()"
+          >
+            <template #labelAfter="{ labelledBy }">
+              <Tooltip
+                :labelled-by="labelledBy"
+                :text="$t('lagesbildView.lagesbildComponent.search.tidsperiodTooltip')"
+              ></Tooltip>
+            </template>
+    </DropdownSelect>
   </div>
 </template>
 
